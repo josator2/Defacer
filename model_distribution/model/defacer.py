@@ -18,7 +18,7 @@ from skimage.measure import label, regionprops
 from skimage.morphology import remove_small_objects
 import matplotlib.pyplot as plt
 from matplotlib import colors
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 from skimage.filters import threshold_triangle
 
 import model.model_ver_contour as model
@@ -37,7 +37,7 @@ if gpus:
     print(e)
 
 
-graph = tf.get_default_graph()
+graph = tf.compat.v1.get_default_graph()
 
 
 class Defacer(object):
