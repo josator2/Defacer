@@ -21,7 +21,10 @@ from matplotlib import colors
 from tensorflow.keras.utils import to_categorical
 from skimage.filters import threshold_triangle
 
-import model.model_ver_contour as model
+
+from model.model_ver_contour import InstanceNormalization
+from model.model_ver_contour import dice_loss
+from model.model_ver_contour import dice_score
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
@@ -491,7 +494,8 @@ class Defacer(object):
 
             # load prediction label
             with graph.as_default():
-            	results = model.model.predict(array_img_re)
+            	model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
+                results = model.predict(array_img_re)
 
             if superior[arg] < 0 :
                 results=flip_axis(results,(3 - arg)) # +1 : index 0 is batch size
@@ -626,7 +630,8 @@ class Defacer(object):
             array_img_re = np.reshape(array_img_re,(1,config["input_shape"][0], config["input_shape"][1], config["input_shape"][2] , 1)) # batch, z ,y, x , ch
 
             with graph.as_default():
-            	results = model.model.predict(array_img_re)
+            	model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
+                results = model.predict(array_img_re)
             results = np.round(results)
 
             # preprocessing: Size recovery and transform onehot to labels number
