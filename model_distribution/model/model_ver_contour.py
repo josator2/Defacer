@@ -241,10 +241,3 @@ class InstanceNormalization(Layer):
         }
         base_config = super(InstanceNormalization, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
-
-
-
-# import model structure and weight
-from keras.models import load_model
-model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
-
