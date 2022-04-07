@@ -630,7 +630,7 @@ class Defacer(object):
             array_img_re = np.reshape(array_img_re,(1,config["input_shape"][0], config["input_shape"][1], config["input_shape"][2] , 1)) # batch, z ,y, x , ch
 
             with graph.as_default():
-            	model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
+                model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
                 results = model.predict(array_img_re)
             results = np.round(results)
 
