@@ -442,7 +442,7 @@ class Defacer(object):
 
 
     # where_do_you_want_to_blur? ex) where = (1,1,1,1) -> blur(eyes, nose, ears, mouth)
-    def Deidentification_image_dcm(self, where, dicom_path, dest_path, verif_path, url, prefix, Model=model):
+    def Deidentification_image_dcm(self, where, dicom_path, dest_path, verif_path, url, prefix):
         '''
         where : list or tuple. Each position stands for eyes nose ears mouth 
                 If the corresponding position is 1, de-identification process.
@@ -605,7 +605,7 @@ class Defacer(object):
 
 
     # where_do_you_want_to_blur? ex) where = (1,1,1,1) -> blur(eyes, nose, ears,mouth)
-    def Deidentification_image_nii(self, where, nfti_path, dest_path, verif_path, url, prefix, Model=model):
+    def Deidentification_image_nii(self, where, nfti_path, dest_path, verif_path, url, prefix):
         '''
         where : list or tuple. Each position stands for eyes nose ears (eyes, nose, ears) 
                 If the corresponding position is 1, de-identification process.
