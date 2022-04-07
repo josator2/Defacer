@@ -494,7 +494,7 @@ class Defacer(object):
 
             # load prediction label
             with graph.as_default():
-            	model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
+                model = load_model('./model/model_contour4.h5',custom_objects={'InstanceNormalization':InstanceNormalization,'dice_loss':dice_loss,'dice_score':dice_score})
                 results = model.predict(array_img_re)
 
             if superior[arg] < 0 :
