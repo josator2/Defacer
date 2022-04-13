@@ -19,6 +19,7 @@ from skimage.morphology import remove_small_objects
 import matplotlib.pyplot as plt
 from matplotlib import colors
 from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.models import load_model
 from skimage.filters import threshold_triangle
 
 
