@@ -310,7 +310,7 @@ class Defacer(object):
             plt.title('predicted mouth: axial = {}'.format(slice_num))
             plt.imshow(image[slice_num,:,:],cmap='gray')
             plt.imshow(pred[slice_num,:,:],alpha=0.5,cmap=cmap, norm=norm)
-
+	
         elif axial_plane == 1:
 
             plt.figure(figsize=(15,10), dpi=1200)
@@ -367,6 +367,26 @@ class Defacer(object):
             plt.imshow(image[:,:,slice_num],cmap='gray')
             plt.imshow(pred[:,:,slice_num],alpha=0.5,cmap=cmap, norm=norm)
     
+        ax1 = fig.add_subplot(2,2,1)
+        ax2 = fig.add_subplot(2,2,2)
+        ax3 = fig.add_subplot(2,2,3)
+        ax4 = fig.add_subplot(2,2,4)
+	
+	extent1 = ax1.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+	extent2 = ax2.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+	extent3 = ax3.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+	extent4 = ax4.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+	
+	pic_name_ax1 = os.path.join(path,'label_{}_ax1.png'.format(os.path.basename(file_name)))
+	pic_name_ax2 = os.path.join(path,'label_{}_ax2.png'.format(os.path.basename(file_name)))
+	pic_name_ax3 = os.path.join(path,'label_{}_ax3.png'.format(os.path.basename(file_name)))
+	pic_name_ax4 = os.path.join(path,'label_{}_ax4.png'.format(os.path.basename(file_name)))
+	
+	fig.savefig(pic_name_ax1, bbox_inches=extent1, dpi=1200)
+	fig.savefig(pic_name_ax2, bbox_inches=extent2, dpi=1200)
+	fig.savefig(pic_name_ax3, bbox_inches=extent3, dpi=1200)
+	fig.savefig(pic_name_ax4, bbox_inches=extent4, dpi=1200)
+	
         pic_name = os.path.join(path,'label_{}.png'.format(os.path.basename(file_name)))
         plt.savefig(pic_name, bbox_inches='tight', dpi=1200)
         plt.close('all')
