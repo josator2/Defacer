@@ -285,7 +285,7 @@ class Defacer(object):
         
         if axial_plane == 0:
 
-            plt.figure(figsize=(15*10,10*10))
+            plt.figure(figsize=(15,10), dpi=1200)
 
             plt.subplot(2,2,1)
             slice_num = int((centers[0][axial_plane]+centers[1][axial_plane])/2)
@@ -313,7 +313,7 @@ class Defacer(object):
 
         elif axial_plane == 1:
 
-            plt.figure(figsize=(15*10,10*10))
+            plt.figure(figsize=(15,10), dpi=1200)
 
             plt.subplot(2,2,1)
             slice_num = int((centers[0][axial_plane]+centers[1][axial_plane])/2)
@@ -341,7 +341,7 @@ class Defacer(object):
 	        
         elif axial_plane == 2:
 
-            plt.figure(figsize=(15*10,10*10))
+            plt.figure(figsize=(15,10), dpi=1200)
 
             plt.subplot(2,2,1)
             slice_num = int((centers[0][axial_plane]+centers[1][axial_plane])/2)
@@ -368,7 +368,7 @@ class Defacer(object):
             plt.imshow(pred[:,:,slice_num],alpha=0.5,cmap=cmap, norm=norm)
     
         pic_name = os.path.join(path,'label_{}.png'.format(os.path.basename(file_name)))
-        plt.savefig(pic_name, bbox_inches='tight')
+        plt.savefig(pic_name, bbox_inches='tight', dpi=1200)
         plt.close('all')
 
         
