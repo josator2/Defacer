@@ -285,7 +285,7 @@ class Defacer(object):
         
         if axial_plane == 0:
 
-            plt.figure(figsize=(15*3,10*3))
+            plt.figure(figsize=(15*10,10*10))
 
             plt.subplot(2,2,1)
             slice_num = int((centers[0][axial_plane]+centers[1][axial_plane])/2)
@@ -313,7 +313,7 @@ class Defacer(object):
 
         elif axial_plane == 1:
 
-            plt.figure(figsize=(15*3,10*3))
+            plt.figure(figsize=(15*10,10*10))
 
             plt.subplot(2,2,1)
             slice_num = int((centers[0][axial_plane]+centers[1][axial_plane])/2)
@@ -341,7 +341,7 @@ class Defacer(object):
 	        
         elif axial_plane == 2:
 
-            plt.figure(figsize=(15*3,10*3))
+            plt.figure(figsize=(15*10,10*10))
 
             plt.subplot(2,2,1)
             slice_num = int((centers[0][axial_plane]+centers[1][axial_plane])/2)
