@@ -367,10 +367,10 @@ class Defacer(object):
             plt.imshow(image[:,:,slice_num],cmap='gray')
             plt.imshow(pred[:,:,slice_num],alpha=0.5,cmap=cmap, norm=norm)
     
-        ax1 = fig.add_subplot(2,2,1)
-        ax2 = fig.add_subplot(2,2,2)
-        ax3 = fig.add_subplot(2,2,3)
-        ax4 = fig.add_subplot(2,2,4)
+        ax1 = plt.subplot(2,2,1)
+        ax2 = plt.subplot(2,2,2)
+        ax3 = plt.subplot(2,2,3)
+        ax4 = plt.subplot(2,2,4)
 
         extent1 = ax1.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
         extent2 = ax2.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
